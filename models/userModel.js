@@ -48,4 +48,5 @@ const userSchema = new mongoose.Schema({
     }
 }, { collection: 'connect_user' }
 )
+
 module.exports = mongoose.model('connect_user', userSchema)
