@@ -2,7 +2,7 @@ const data = [
   {
       "EmployeeId": "C001",
       "EmployeeName": "Emma Thompson",
-      "ReportingManager": null, // Top-level, no manager above CEO
+      "ReportingManager": null, // Top-level,  no manager above CEO
       "Designation": "CEO",
       "Role": "Admin",
       "DateOfBirth": "1970-01-15",
