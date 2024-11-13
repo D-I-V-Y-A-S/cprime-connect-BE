@@ -10,17 +10,25 @@ const getEmployees = async (req, res) => {
     }
 };
 
-// Update employee details
 const updateEmployee = async (req, res) => {
-    const { id } = req.params;
-    const updates = req.body;
-
+    const updates = req.body; 
+console.log(updates)
     try {
-        const updatedEmployee = await User.findByIdAndUpdate(id, updates, { new: true });
-        if (!updatedEmployee) return res.status(404).json({ message: "Employee not found" });
-        res.status(200).json(updatedEmployee);
+        const updatedEmployee = await User.findOneAndReplace(
+            { EmployeeId: updates.EmployeeId },
+            updates, 
+            { new: true }  // Return the updated document
+        );
+
+        if (updatedEmployee) {
+            return res.status(200).json(updatedEmployee);  // Successfully updated
+        } else {
+            return res.status(404).json("Employee not found");  // No employee found
+        }
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: error.message });  // Internal server error
     }
 };
+
+
 module.exports = { getEmployees, updateEmployee };
