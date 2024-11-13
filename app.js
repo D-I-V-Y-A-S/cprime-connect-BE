@@ -17,7 +17,7 @@ app.get('/api/v1',(request,response)=>{
 const route=require('./routes/router.js')
 app.use('/api/v1',route)
 
-mongoose.connect(process.env.DB_URL)
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
 db.on('error', (errorMessage) => console.log(errorMessage))
 db.once('open', () => console.log('Connected to db successfully'))
