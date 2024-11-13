@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
 
 app.use(cors())
 app.use(express.json())
-
+app.use(express.urlencoded({ extended: true }))
 //test-code
 app.get('/api/v1',(request,response)=>{
     response.status(200).json({message:"HI from backend!"})
