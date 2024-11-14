@@ -4,7 +4,8 @@ const userSchema = new mongoose.Schema({
     EmployeeId: {
         type: String,
         required: true,
-        match: /^C[0-9]{1,}$/
+        match: /^C[0-9]{1,}$/,
+        unique:true
     },
     EmployeeName: {
         type: String,
@@ -32,7 +33,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        match: /^[a-z]+\.[a-z]+@cprime\.com$/
+        match: /^[a-z]+\.[a-z]+@cprime\.com$/,
+        unique:true
     },
     JoiningDate: {
         type: Date,
