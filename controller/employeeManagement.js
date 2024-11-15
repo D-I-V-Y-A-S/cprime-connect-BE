@@ -18,7 +18,6 @@ const updateEmployee = async (req, res) => {
         const updatedEmployee = await User.findOneAndReplace(
             { EmployeeId: updates.EmployeeId },
             updates,
-            { new: true } // Return the updated document
         );
 
         if (updatedEmployee) {
